@@ -1,0 +1,47 @@
+Preguntas/información Practica 2.4 Jonathan Hernández3BMP #19
+Preguntas: 9
+Vida inicial: 80
+Daño por error: 20
+Mostar vida como barra de vida con "#" cada "#" vale 10 de vida
+EJ "######" 60 de vida
+
+Preguntas "Futbol": 
+1.-¿Que jugador es el máximo ganador de balones de oro?
+a. Lionel Messi
+b. Cristiano Ronaldo
+c. Roberto Alvarado
+
+2.-¿Que jugador a poseído el dorsal 10 por mas tiempo en el FC Barcelona?
+a. Ronaldinho
+b. Ansu Fati
+c. Lionel Messi
+
+3.- ¿Qué partido es conocido como "EL MARACANAZ0"?
+a. Inglaterra vs México
+b. Brasil vs Argentina
+c. Brasil vs Uruguay
+
+4.- ¿Qué jugador es conocido como "El huracán/Hurricane"?
+a. Julián Álvarez
+b. Harry Kane
+c. Cristiano Ronaldo
+
+5.-¿Que jugador es conocido como "Piojo"?
+a. Antony Gordon
+b. Raul Jimenez
+c. Roberto Alvarado
+
+6.-¿Quien anoto el gol conocido como gol del siglo?
+a. Maradona
+b. Mario Kempes
+c. Lionel Messi
+
+7.-¿Quien metio el gol que le dio el 1-0 a Boca para ganar el campeonato de liga anual 2026?
+a. Enner Valencia
+b. Leandro Paredes
+c. Sebastián Villa
+
+8.-¿En el Famoso no era penal ¿Que jugador "cayo" dentro del área?
+a. Arjen Robben
+b. Van Persie
+c. Ron Vlaar
