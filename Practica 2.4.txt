@@ -1,0 +1,117 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        int totalPreguntas = 9;
+        int vida = 80;
+        int dano = 20;
+        
+        int aciertos = 0;
+        int errores = 0;
+        int contestadas = 0;
+        char respuesta;
+
+
+        String[] preguntas = {
+            "1.- ¿Qué jugador es el máximo ganador de Balones de Oro?",
+            "2.- ¿Qué jugador ha poseído el dorsal 10 por más tiempo en el FC Barcelona?",
+            "3.- ¿Qué partido es conocido como EL MARACANAZO?",
+            "4.- ¿Qué jugador es conocido como El Huracán / Hurricane?",
+            "5.- ¿Qué jugador es conocido como 'Piojo'?",
+            "6.- ¿Quién anotó el gol conocido como el 'Gol del Siglo'?",
+            "7.- ¿Quién metió el gol que le dio el 1-0 a Boca para ganar el campeonato de liga anual 2026?",
+            "8.- En el famoso 'No era penal', ¿qué jugador cayó dentro del área?",
+            "9.- ¿Qué selección tiene más Copas del Mundo ganadas?"
+        };
+
+        String[] opciones = {
+            "a) Cristiano Ronaldo   b) Lionel Messi   c) Michel Platini   d) Johan Cruyff",
+            "a) Ronaldinho          b) Rivaldo        c) Lionel Messi     d) Diego Maradona",
+            "a) Brasil vs Alemania (2014)  b) Uruguay vs Brasil (1950)  c) Argentina vs Inglaterra (1986)  d) Francia vs Brasil (1998)",
+            "a) Harry Kane          b) Erling Haaland c) Kylian Mbappé    d) Wayne Rooney",
+            "a) Cuauhtémoc Blanco   b) Roberto Alvarado  c) Chicharito       d) Luis Hernández",
+            "a) Pelé                b) Zinedine Zidane c) Diego Maradona  d) Ronaldo Nazário",
+            "a) Edinson Cavani      b) Enner Valemcia c) Exequiel Zeballos d) Kevin Zenón",
+            "a) Robin van Persie    b) Wesley Sneijder c) Arjen Robben    d) Memphis Depay",
+            "a) Alemania            b) Argentina      c) Italia           d) Brasil"
+        };
+
+        char[] correctas = {'b', 'c', 'b', 'a', 'b', 'c', 'b', 'c', 'd'};
+        
+
+        String[] falladas = new String[totalPreguntas];
+        int indiceFalladas = 0;
+
+        System.out.println("==========================================");
+        System.out.println("      ¡BIENVENIDO AL QUIZ DE FÚTBOL!");
+        System.out.println("==========================================");
+        System.out.println("Vida inicial: " + vida + " puntos.");
+        System.out.println("Daño por error: -" + dano + " puntos.\n");
+        for (int i = 0; i < totalPreguntas; i++) {
+            System.out.println(preguntas[i]);
+            System.out.println(opciones[i]);
+            do {
+                System.out.print("Tu respuesta (a, b, c, d): ");
+                respuesta = sc.next().toLowerCase().charAt(0);
+                if (respuesta != 'a' && respuesta != 'b' && respuesta != 'c' && respuesta != 'd') {
+                    System.out.println("Opción no válida. Por favor ingresa a, b, c o d.");
+                }
+            } while (respuesta != 'a' && respuesta != 'b' && respuesta != 'c' && respuesta != 'd');
+
+            contestadas++;
+
+            // Evaluación de la respuesta
+            if (respuesta == correctas[i]) {
+                System.out.println("¡Correcto!");
+                aciertos++;
+            } else {
+                System.out.println("Incorrecto. La respuesta correcta era: " + correctas[i] + ")");
+                vida -= dano;
+                errores++;
+                falladas[indiceFalladas] = preguntas[i] + " (" + correctas[i] + ")";
+                indiceFalladas++;
+            }
+            if (vida < 0) {
+                vida = 0;
+            }
+            String barraVida = "";
+            for (int j = 0; j < vida / 10; j++) {
+                barraVida += "#";
+            }
+            System.out.println("Vida restante: " + vida + " [" + barraVida + "]\n");
+            if (vida <= 0) {
+                System.out.println("==========================================");
+                System.out.println("                GAME OVER");
+                System.out.println("==========================================\n");
+                break;
+            }
+        }
+        double porcentaje = ((double) aciertos / totalPreguntas) * 100;
+        String mensajeResultado;
+
+        if (porcentaje >= 90) {
+            mensajeResultado = "Excelente";
+        } else if (porcentaje >= 70) {
+            mensajeResultado = "Aprobado";
+        } else {
+            mensajeResultado = "Necesitas repasar";
+        }
+        System.out.println("=== RESUMEN ===");
+        System.out.println("Preguntas contestadas: " + contestadas + " de " + totalPreguntas);
+        System.out.println("Aciertos: " + aciertos);
+        System.out.println("Errores: " + errores);
+        System.out.println("Porcentaje: "+ porcentaje);
+        System.out.println("Vida final: " + vida);
+        System.out.println("Resultado: " + mensajeResultado);
+        if (errores > 0) {
+            System.out.println("\nPreguntas que fallaste:");
+            for (int i = 0; i < indiceFalladas; i++) {
+                System.out.println(falladas[i]);
+            }
+        }
+        sc.close();
+    }
+}
